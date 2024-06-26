@@ -1,0 +1,444 @@
+@import './reset.css';
+
+:root {
+    --body-bg: #fff;
+    --nav-bg: blue;
+    --nav-color: #fff;
+}
+
+.wrap {
+    position: relative;
+    display: flex;
+}
+.header {
+    width: 20%;
+    background: var(--nav-bg);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    color: var(--nav-color);
+}
+.header h1 {
+    font-size: 30px;
+    color: var(--nav-color);
+    margin-bottom: 70px;
+    padding: 20px;
+}
+.header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--nav-color);
+    margin-bottom: 20px;
+    padding: 10px 10px 0 2cqb;
+}
+
+.header h3 > * {
+    color: var(--nav-color);
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    padding: 10px 10px 10px 25px;
+}
+/* ====== 메뉴를 눌렀을때 style */
+.header .active {
+    position: relative;
+    background: var(--body-bg);
+    color: var(--nav-bg);
+    font-weight: 600;
+    padding: 10px;
+    margin-left: 15px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.header .active::before,
+.header .active::after {
+    --border-radius: 3rem;
+    content: '';
+    position: absolute;
+    right: 0;
+    width: var(--border-radius);
+    height: var(--border-radius);
+    background: var(--nav-bg);
+}
+
+.header .active::after {
+    top: calc(var(--border-radius) * -1);
+    box-shadow: 10px 10px 0 10px var(--body-bg);
+    border-radius: 0 0 100vw 0;
+}
+
+.header .active::before {
+    bottom: calc(var(--border-radius) * -1);
+    box-shadow: 10px -10px 0 10px var(--body-bg);
+    border-radius: 0 100vw 0 0;
+}
+
+/* ======== 본문 style */
+.content {
+    width: 80%;
+    padding: 20px;
+}
+
+.content_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+.content_header .ch_title {
+}
+.content_header .ch_title h3 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.content_header .ch_title p {
+    font-size: 16px;
+    color: #555;
+}
+.content_header .ch_title span {
+    /* color: var(--nav-bg); */
+}
+.content_header .search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content_header .search input {
+    font-size: 16px;
+    width: 90%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 3px;
+    display: none;
+}
+.content_header .search input::placeholder {
+    color: #ddd;
+}
+.content_header .search button {
+    padding-bottom: 3px;
+    width: 24px;
+}
+.content_header .search button img {
+    padding-bottom: 3px;
+    width: 100%;
+}
+
+/* list */
+
+.list_wrap {
+    border-top: 1px solid #ddd;
+}
+.list_wrap .write_btn {
+    display: flex;
+    justify-content: flex-end;
+}
+.list_wrap .write_btn button {
+    padding: 10px 20px;
+    background: #f4f4f4;
+    border-radius: 20px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+.list_wrap .write_btn button:hover {
+    background-color: #ddd;
+    transition: all ease-in 0.3s;
+}
+.list_wrap ul {
+}
+.list_wrap li {
+}
+.list_wrap .list_link {
+    padding: 20px 5px;
+    border-bottom: 1px solid #eee;
+}
+.list_wrap .lw_top {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.list_wrap .lw_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list_wrap li .category {
+    color: #999;
+}
+.list_wrap li .nick {
+    color: #999;
+}
+.list_wrap li .title {
+    font-size: 16px;
+    font-weight: 600;
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list_wrap li .date {
+    width: 10%;
+    text-align: right;
+}
+
+/* 글쓰기!! */
+.write {
+    width: 100%;
+}
+.write .write_form {
+    margin-bottom: 80px;
+}
+.write .category {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.write .category h3 {
+    font-size: 18px;
+    color: #a9a9a9;
+    font-weight: 600;
+}
+
+.write .category ul {
+    display: flex;
+    gap: 10px;
+}
+.write .category li {
+    font-size: 16px;
+    color: #aaa;
+    padding: 5px;
+    cursor: pointer;
+}
+.write .category li.ck {
+    background: var(--nav-bg);
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 500;
+}
+.write .w_top {
+}
+.write .w_top input {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+.write .w_top input::placeholder {
+    color: #aaa;
+}
+.write .w_mid {
+    margin-bottom: 20px;
+}
+.write .wm_top {
+}
+.write .wm_top input {
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+.write .wm_top input::placeholder {
+    color: #aaa;
+}
+.write .p_box {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+.write .w_mid textarea {
+    font-size: 16px;
+    width: 100%;
+    min-height: 300px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px 10px;
+}
+.write .w_mid textarea::placeholder {
+    color: #aaa;
+}
+.write .w_bottom {
+}
+.write .w_bottom .upload input {
+    display: none;
+}
+.write .w_bottom .upload input + label {
+    font-size: 14px;
+    color: #aaa;
+}
+.write .w_bottom .upload input + label em {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('../public/up_i.png') center center / 100% no-repeat;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+.write .w_bottom .preview {
+    position: relative;
+    border-radius: 10px;
+    object-fit: cover;
+    width: 300px;
+}
+.write .w_bottom .preview .up_img {
+    /* height: auto; */
+    min-width: 300px;
+    max-width: 300px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.write .w_bottom .preview button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.write .w_bottom .preview button img {
+    width: 50px;
+    height: 50px;
+}
+.write .save_box {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.write .save_box button {
+    padding: 10px 40px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.write .save_box button.btn1 {
+    background: #ddd;
+    color: #fff;
+}
+.write .save_box button.btn1:hover {
+    background: #ccc;
+    transition: all ease 1s;
+}
+.write .save_box button.btn2 {
+    background: var(--nav-bg);
+    color: #fff;
+}
+.write .save_box button.btn2:hover {
+    background: #0202da;
+    transition: all ease 1s;
+}
+
+/* 상세보기 */
+.detail {
+}
+.detail .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.detail .title_l {
+}
+.detail .title_l h2 {
+    font-size: 22px;
+    font-weight: 500;
+}
+.detail .title_r {
+    display: flex;
+    gap: 10px;
+}
+.detail .title_r .edit_btn {
+    color: #aaa;
+}
+.detail .title_r .delete_btn {
+    color: #fb2525;
+}
+.detail .info {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.detail .info h3 {
+    font-weight: 400;
+}
+.detail .info h4 {
+    font-weight: 400;
+}
+.detail .contents {
+}
+.detail .contents img {
+    min-width: 300px;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+.detail .contents p {
+    font-size: 16px;
+    white-space: pre-line;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal_wrap {
+    position: absolute;
+    width: 350px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: 1;
+
+    padding: 20px;
+    border-radius: 20px;
+}
+.modal h4 {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.modal .input_box {
+    padding: 10px 5px;
+    border: 1px solid #f4f4f4;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.modal .pw_ok {
+    color: #aaa;
+    margin-right: 5px;
+}
+.modal input {
+    width: 90%;
+}
+.modal input::placeholder {
+}
+.modal p {
+    font-size: 12px;
+    color: #b23636;
+    margin-bottom: 50px;
+    visibility: hidden;
+}
+.modal .ok_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: #ddd;
+    border-radius: 5px;
+}
+.modal .c_btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.modal .c_btn img {
+    width: 40px;
+}
